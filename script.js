@@ -10,8 +10,8 @@ if (hamburger && mobile_menu) {
 
     menu_item.forEach((item) => {
         item.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            mobile_menu.classList.toggle('active');
+            hamburger.classList.remove('active');
+            mobile_menu.classList.remove('active');
         });
     });
 }
