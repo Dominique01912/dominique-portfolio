@@ -17,13 +17,15 @@
                     <a href="#hero"><h1><span>DA</span>B.</h1></a>
                 </div>
                 <div class="nav-list">
-                    <div class="hamburger"><div class="bar"></div></div>
+                    <div class="hamburger" onclick="this.classList.toggle('active'); document.querySelector('#header .nav-list ul').classList.toggle('active');">
+                        <div class="bar"></div>
+                    </div>
                     <ul>
-                        <li><a href="#hero" data-after="Home">Home</a></li>
-                        <li><a href="#services" data-after="Services">Skills</a></li>
-                        <li><a href="#projects" data-after="Projects">Activities</a></li>
-                        <li><a href="#about" data-after="About">About</a></li>
-                        <li><a href="#contact" data-after="Contact">Contact</a></li>
+                        <li><a href="#hero" data-after="Home" onclick="document.querySelector('#header .hamburger').classList.remove('active'); document.querySelector('#header .nav-list ul').classList.remove('active');">Home</a></li>
+                        <li><a href="#services" data-after="Services" onclick="document.querySelector('#header .hamburger').classList.remove('active'); document.querySelector('#header .nav-list ul').classList.remove('active');">Skills</a></li>
+                        <li><a href="#projects" data-after="Projects" onclick="document.querySelector('#header .hamburger').classList.remove('active'); document.querySelector('#header .nav-list ul').classList.remove('active');">Activities</a></li>
+                        <li><a href="#about" data-after="About" onclick="document.querySelector('#header .hamburger').classList.remove('active'); document.querySelector('#header .nav-list ul').classList.remove('active');">About</a></li>
+                        <li><a href="#contact" data-after="Contact" onclick="document.querySelector('#header .hamburger').classList.remove('active'); document.querySelector('#header .nav-list ul').classList.remove('active');">Contact</a></li>
                     </ul>
                 </div>
             </div>
