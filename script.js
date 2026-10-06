@@ -1,6 +1,6 @@
-const hamburger = document.querySelector('.hamburger');
-const mobile_menu = document.querySelector('.nav-list ul');
-const menu_item = document.querySelectorAll('.nav-list ul li a');
+const hamburger = document.querySelector('#header .hamburger');
+const mobile_menu = document.querySelector('#header .nav-list ul');
+const menu_item = document.querySelectorAll('#header .nav-list ul li a');
 
 if (hamburger && mobile_menu) {
     hamburger.addEventListener('click', () => {
