@@ -17,15 +17,17 @@
                     <a href="#hero"><h1><span>DA</span>B.</h1></a>
                 </div>
                 <div class="nav-list">
-                    <div class="hamburger" onclick="this.classList.toggle('active'); document.querySelector('#header .nav-list ul').classList.toggle('active');">
+                    <!-- Checkbox Hack para sa Mobile Menu (Gagana kahit walang JS) -->
+                    <input type="checkbox" id="menu-toggle">
+                    <label for="menu-toggle" class="hamburger">
                         <div class="bar"></div>
-                    </div>
+                    </label>
                     <ul>
-                        <li><a href="#hero" data-after="Home" onclick="document.querySelector('#header .hamburger').classList.remove('active'); document.querySelector('#header .nav-list ul').classList.remove('active');">Home</a></li>
-                        <li><a href="#services" data-after="Services" onclick="document.querySelector('#header .hamburger').classList.remove('active'); document.querySelector('#header .nav-list ul').classList.remove('active');">Skills</a></li>
-                        <li><a href="#projects" data-after="Projects" onclick="document.querySelector('#header .hamburger').classList.remove('active'); document.querySelector('#header .nav-list ul').classList.remove('active');">Activities</a></li>
-                        <li><a href="#about" data-after="About" onclick="document.querySelector('#header .hamburger').classList.remove('active'); document.querySelector('#header .nav-list ul').classList.remove('active');">About</a></li>
-                        <li><a href="#contact" data-after="Contact" onclick="document.querySelector('#header .hamburger').classList.remove('active'); document.querySelector('#header .nav-list ul').classList.remove('active');">Contact</a></li>
+                        <li><a href="#hero" data-after="Home" onclick="document.getElementById('menu-toggle').checked = false;">Home</a></li>
+                        <li><a href="#services" data-after="Services" onclick="document.getElementById('menu-toggle').checked = false;">Skills</a></li>
+                        <li><a href="#projects" data-after="Projects" onclick="document.getElementById('menu-toggle').checked = false;">Activities</a></li>
+                        <li><a href="#about" data-after="About" onclick="document.getElementById('menu-toggle').checked = false;">About</a></li>
+                        <li><a href="#contact" data-after="Contact" onclick="document.getElementById('menu-toggle').checked = false;">Contact</a></li>
                     </ul>
                 </div>
             </div>

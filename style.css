@@ -127,9 +127,14 @@ p {
                 color: crimson;
             }
 
-    #header .hamburger {
-        display: none;
-    }
+/* Hide checkbox by default */
+#menu-toggle {
+    display: none !important;
+}
+
+#header .hamburger {
+    display: none;
+}
 
 /* --- HERO SECTION --- */
 #hero {
@@ -395,11 +400,10 @@ p {
     }
 
 /* ========================================================= */
-/* --- RESPONSIVE MEDIA QUERIES (MOBILE FIXES) --- */
+/* --- RESPONSIVE MOBILE FIXES (PURE CSS CHECKBOX HACK) --- */
 /* ========================================================= */
 
 @media only screen and (max-width: 768px) {
-    /* 1. Pakita at siguraduhing clickable ang Hamburger button */
     #header .hamburger {
         display: flex !important;
         justify-content: center !important;
@@ -409,7 +413,6 @@ p {
         position: relative !important;
         z-index: 99999 !important;
         cursor: pointer !important;
-        pointer-events: auto !important;
     }
 
         #header .hamburger .bar {
@@ -417,7 +420,6 @@ p {
             width: 30px !important;
             position: relative !important;
             background-color: white !important;
-            pointer-events: none !important;
             transition: 0.3s ease background-color !important;
         }
 
@@ -441,55 +443,54 @@ p {
                 bottom: 8px !important;
             }
 
-        /* Animated 'X' Effect kapag pino-toggle */
-        #header .hamburger.active .bar {
-            background-color: transparent !important;
-        }
-
-            #header .hamburger.active .bar::before {
-                bottom: 0 !important;
-                transform: rotate(45deg) !important;
-            }
-
-            #header .hamburger.active .bar::after {
-                top: 0 !important;
-                transform: rotate(-45deg) !important;
-            }
-
-    /* 2. Fullscreen Slide-in Menu Panel */
+    /* Mobile Overlay Menu Panel */
     #header .nav-list ul {
         position: fixed !important;
         background-color: rgba(31, 30, 30, 0.98) !important;
         height: 100vh !important;
         width: 100vw !important;
-        left: 100% !important; /* Nakatago sa kanan sa umpisa */
+        left: 100% !important;
         top: 0 !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
         align-items: center !important;
         z-index: 99988 !important;
-        transition: 0.5s ease left !important;
+        transition: 0.4s ease left !important;
         list-style: none !important;
     }
 
-        /* Papasok ang menu kapag may .active class */
-        #header .nav-list ul.active {
-            left: 0 !important;
+    /* Kapag pino-toggle ang checkbox, lilitaw ang navigation menu */
+    #menu-toggle:checked ~ ul {
+        left: 0 !important;
+    }
+
+    /* 'X' icon animation kapag sarado/bukas */
+    #menu-toggle:checked ~ .hamburger .bar {
+        background-color: transparent !important;
+    }
+
+        #menu-toggle:checked ~ .hamburger .bar::before {
+            bottom: 0 !important;
+            transform: rotate(45deg) !important;
         }
 
-        #header .nav-list ul li a {
-            font-size: 2.5rem !important;
-            font-weight: 500 !important;
-            letter-spacing: 0.2rem !important;
-            text-decoration: none !important;
-            color: white !important;
-            text-transform: uppercase !important;
-            padding: 20px !important;
-            display: block !important;
+        #menu-toggle:checked ~ .hamburger .bar::after {
+            top: 0 !important;
+            transform: rotate(-45deg) !important;
         }
 
-    /* Mobile Layout adjustments sa body sections */
+    #header .nav-list ul li a {
+        font-size: 2.5rem !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.2rem !important;
+        text-decoration: none !important;
+        color: white !important;
+        text-transform: uppercase !important;
+        padding: 20px !important;
+        display: block !important;
+    }
+
     #hero .hero {
         flex-direction: column-reverse;
         justify-content: center;
