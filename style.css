@@ -572,4 +572,74 @@ p {
         margin: 20px;
         width: 30%;
     }
+
+    @media only screen and (max-width: 768px) {
+        /* Piliting lumabas ang hamburger button at lagyan ng pansamantalang border */
+        #header .hamburger {
+            display: flex !important;
+            position: relative !important;
+            z-index: 999999 !important;
+            width: 50px !important;
+            height: 50px !important;
+            border: 2px solid crimson !important; /* Visual boundary box */
+            background-color: rgba(255, 255, 255, 0.2) !important;
+            cursor: pointer !important;
+        }
+
+            #header .hamburger .bar,
+            #header .hamburger .bar::before,
+            #header .hamburger .bar::after {
+                background-color: #ffffff !important;
+                height: 4px !important;
+                width: 30px !important;
+                display: block !important;
+            }
+
+        /* --- DIAGNOSTIC & OVERLAY FIX FOR MOBILE --- */
+        @media only screen and (max-width: 768px) {
+            /* 1. Lagyan ng berdeng kahon ang tap zone para makitang buo ito */
+            #header .hamburger {
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                width: 50px !important;
+                height: 50px !important;
+                position: relative !important;
+                z-index: 999999 !important;
+                pointer-events: auto !important;
+                background-color: crimson !important; /* Matingkad na pula para kita agad */
+                border-radius: 5px !important;
+            }
+
+                /* 2. Tiyaking puti at malinaw ang tatlong linya */
+                #header .hamburger .bar,
+                #header .hamburger .bar::before,
+                #header .hamburger .bar::after {
+                    background-color: #ffffff !important;
+                    height: 4px !important;
+                    width: 30px !important;
+                    display: block !important;
+                }
+
+            /* 3. Tiyaking nasa ibabaw ng lahat ang overlay panel */
+            #header .nav-list ul {
+                position: fixed !important;
+                background-color: #1a1a1a !important;
+                height: 100vh !important;
+                width: 100vw !important;
+                left: 100% !important;
+                top: 0 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+                z-index: 999988 !important;
+                transition: 0.3s ease left !important;
+            }
+
+            #menu-toggle:checked ~ ul {
+                left: 0 !important;
+            }
+        }
+    }
 }
